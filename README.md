@@ -26,9 +26,9 @@ change to:
 $page_include_paths = array(
 	"account",
 	"forms",
-  "privatemessages",
-  "privatemessages/forms",
-  "privatemessages/api"
+	"privatemessages",
+	"privatemessages/forms",
+	"privatemessages/api"
 	// Define more include paths here
 );
 ```
@@ -41,7 +41,7 @@ $page_include_paths = array(
 change to:
 ```html
 <ul class="nav navbar-master navbar-nav navbar-right">
-    <li class='navitem-pms'><a href="../privatemessages/pm.php"><i class="fa fa-envelope"></i> Private Messages</a></li>
-	<li class="dropdown user-dropdown">
+	<li class='navitem-pms'><a href="../privatemessages/pm.php"><i class="fa fa-envelope"></i> Private Messages</a></li>
+		<li class="dropdown user-dropdown">
 ```	
 Now run the installer and all should work like it should.
