@@ -27,8 +27,7 @@ $page_include_paths = array(
 	"account",
 	"forms",
 	"privatemessages",
-	"privatemessages/forms",
-	"privatemessages/api"
+	"privatemessages/forms"
 	// Define more include paths here
 );
 ```
