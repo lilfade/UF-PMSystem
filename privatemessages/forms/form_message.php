@@ -63,7 +63,7 @@ $message = '';
 if ($populate_fields) {
     $message = $msg['message'];
     $title = $msg['title'];
-    $sender_info = loadUser($msg['sender_id']);
+    $sender_info = fetchUserMin($msg['sender_id']);
     $sender_name = $sender_info['user_name'];
 }
 

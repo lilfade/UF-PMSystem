@@ -87,6 +87,31 @@ PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 ";
 
+$pm_config_sql = "INSERT INTO `".$db_table_prefix."plugin_configuration` (`name`, `value`, `binary`, `variable`) VALUES
+('PM System', '1', '1', '\$pmsystem')
+";
+
+$pm_nav_entry = "INSERT INTO `".$db_table_prefix."nav` (`id`, `menu`, `page`, `name`, `position`, `class_name`, `icon`, `parent_id`) VALUES
+('', 'top-main', 'privatemessages/pm.php', 'Private Messages', -1, 'pms', 'fa fa-envelope', 0);
+";
+
+$pm_nav_group_matches_entry = "INSERT INTO `".$db_table_prefix."nav_group_matches` (`id`, `menu_id`, `group_id`) VALUES
+('', LAST_INSERT_ID(), 1);
+";
+
+// Insert page then do the group perms, then do it again for each page
+$pm_page_entry_1 = "INSERT INTO `".$db_table_prefix."pages` (`id`, `page`, `private`)
+VALUES ('', 'privatemessages/index.php', 0);";
+$pm_page_entry_2 = "INSERT INTO `".$db_table_prefix."pages` (`id`, `page`, `private`)
+VALUES ('', 'privatemessages/pm.php', 1);";
+$pm_page_entry_3 = "INSERT INTO `".$db_table_prefix."pages` (`id`, `page`, `private`)
+VALUES ('', 'privatemessages/forms/form_message.php', 1);";
+
+$pm_group_page_matches_entry_2 = "INSERT INTO `".$db_table_prefix."group_page_matches` (`id`, `group_id`, `page_id`)
+VALUES ('', '1', LAST_INSERT_ID());";
+$pm_group_page_matches_entry_3 = "INSERT INTO `".$db_table_prefix."group_page_matches` (`id`, `group_id`, `page_id`)
+VALUES ('', '1', LAST_INSERT_ID());";
+
 $stmt = $db->prepare($pm_sql);
 if($stmt->execute())
 {
@@ -98,6 +123,93 @@ else
     $db_issue = true;
 }
 
+$stmt = $db->prepare($pm_config_sql);
+if($stmt->execute())
+{
+    $successes[] = "<p>Config values added for PM System</p>";
+}
+else
+{
+    $errors[] = "<p>Error adding config values.</p>";
+    $db_issue = true;
+}
+
+$stmt = $db->prepare($pm_nav_entry);
+if($stmt->execute())
+{
+    $successes[] = "<p>Nav Items added for PM System</p>";
+}
+else
+{
+    $errors[] = "<p>Error adding nav values.</p>";
+    $db_issue = true;
+}
+
+$stmt = $db->prepare($pm_nav_group_matches_entry);
+if($stmt->execute())
+{
+    $successes[] = "<p>Group match values added for PM System</p>";
+}
+else
+{
+    $errors[] = "<p>Error adding group values.</p>";
+    $db_issue = true;
+}
+
+$stmt = $db->prepare($pm_page_entry_1);
+if($stmt->execute())
+{
+    $successes[] = "<p>Page 1 values added for PM System</p>";
+}
+else
+{
+    $errors[] = "<p>Error adding page 1 values.</p>";
+    $db_issue = true;
+}
+
+$stmt = $db->prepare($pm_page_entry_2);
+if($stmt->execute())
+{
+    $successes[] = "<p>Page 2 values added for PM System</p>";
+}
+else
+{
+    $errors[] = "<p>Error adding page 2 values.</p>";
+    $db_issue = true;
+}
+
+$stmt = $db->prepare($pm_group_page_matches_entry_2);
+if($stmt->execute())
+{
+    $successes[] = "<p>Page 2 match values added for PM System</p>";
+}
+else
+{
+    $errors[] = "<p>Error adding page 2 match values.</p>";
+    $db_issue = true;
+}
+
+$stmt = $db->prepare($pm_page_entry_3);
+if($stmt->execute())
+{
+    $successes[] = "<p>Page 3 values added for PM System</p>";
+}
+else
+{
+    $errors[] = "<p>Error adding page 3 values.</p>";
+    $db_issue = true;
+}
+
+$stmt = $db->prepare($pm_group_page_matches_entry_3);
+if($stmt->execute())
+{
+    $successes[] = "<p>Page 3 match values added for PM System</p>";
+}
+else
+{
+    $errors[] = "<p>Error adding page 3 match values.</p>";
+    $db_issue = true;
+}
 
 $result = array();
 

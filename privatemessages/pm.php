@@ -21,8 +21,8 @@ if (!securePage(__FILE__)){
     header("Location: 404.php");
     exit();
 }
-
-if ($pmsystem_enabled != 1){
+$pvalue = $plugin_settings['$pmsystem']['value'];
+if ($pvalue != 1){
     // Forward to index page
     addAlert("danger", "Whoops, looks like the private message system is not enabled");
     header("Location: ".SITE_ROOT."account/index.php");

@@ -131,7 +131,7 @@ function pmsWidget(widget_id, options) {
                         formattedRowData['sender_name'] = loadUserNameById(record['sender_id']);
 
                         var template = Handlebars.compile("<td data-text='{{sender_id}}'><div class='h4'>" +
-                            "<a href='user_details.php?id={{sender_id}}'>{{sender_name}}</a></div>" +
+                            "<a href='../account/user_details.php?id={{sender_id}}'>{{sender_name}}</a></div>" +
                             "</td>");
                         row += template(formattedRowData);
 					}
@@ -200,7 +200,7 @@ function loadUserNameById(sender_id) {
     var data = {
         user_id: sender_id
     };
-    var url = APIPATH + 'load_users.php';
+    var url = 'api/load_users_min.php';
     var result = $.ajax({
         type: "GET",
         url: url,
@@ -209,8 +209,8 @@ function loadUserNameById(sender_id) {
     }).responseText;
     var resultJSON = processJSONResult(result);
 
-    if (resultJSON['user_name']) {
-        return resultJSON['user_name'];
+    if (resultJSON['display_name']) {
+        return resultJSON['display_name'];
     } else {
         addAlert("danger", "We couldn't load the sender's name sorry about that!");
         return '{User Not Found}';
@@ -292,7 +292,7 @@ function msgForm(box_id, msg_id) {
             $('#' + box_id).modal('show');
 
             // Load action options
-            var url = APIPATH + "load_users.php";
+            var url = "api/load_users_min.php";
             $.getJSON( url, { })
                 .done(function( data ) {
                     var suggestions = [];

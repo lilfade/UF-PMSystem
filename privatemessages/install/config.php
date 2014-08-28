@@ -20,5 +20,5 @@ function logAllErrors($errno, $errstr, $errfile, $errline, array $errcontext) {
     error_log("Error ($errno): $errstr in $errfile on line $errline");
 	throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
 }
-
+require_once("../../models/error_functions.php");
 session_start();
