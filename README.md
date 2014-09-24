@@ -1,5 +1,7 @@
 __Current Status: Working, still needs work - 8/28/14__
+__Don't post on the main UF repo asking for support for files not found ow any other error unless it is because of UF and not the plugin__
 
+__Broken as of UserFrosting v0.2.0__
 
 UF-PMSystem
 ===========
