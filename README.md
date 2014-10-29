@@ -4,7 +4,7 @@ __Don't post on the main UF repo asking for support for files not found ow any o
 
 __Broken as of UserFrosting v0.2.0__
 
-__Will be rewritten once changes of Userfrosting are nailed down, a lot of stuff still needs some work and until the work is finished this plugin will not be updated, if you need the use of this plugin feel free to fork the repo and make the changes you need. This will help me find out how people are using this and also help me when i do the recode of it. 10-29-14 __
+__Will be rewritten once changes of Userfrosting are nailed down, a lot of stuff still needs some work and until the work is finished this plugin will not be updated, if you need the use of this plugin feel free to fork the repo and make the changes you need. This will help me find out how people are using this and also help me when i do the recode of it. 10-29-14__
 
 UF-PMSystem
 ===========
